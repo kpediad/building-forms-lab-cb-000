@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Todo from './Todo'
 
-class TodosContainer extends Component {
+class BandsContainer extends Component {
 
-  renderTodos = () => this.props.todos.map((todo, id) => <Todo key={id} text={todo} />)
+  renderBands = () => this.props.bands.map((band) => <li>{band}</li>)
 
   render() {
     return(
       <div>
-        {this.renderTodos()}
+        <BandInput />
+        {this.renderBands()}
       </div>
     );
   }
@@ -17,8 +17,8 @@ class TodosContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    todos: state.todos
+    bands: state.bands
   }
 }
 
-export default connect(mapStateToProps)(TodosContainer);
+export default connect(mapStateToProps)(BandsContainer);
